@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lynnewaters Interview Intelligence</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark">◈</span><div><b>LYNNEWATERS</b><small>INTERVIEW INTELLIGENCE</small></div></div>
+    <nav>
+      <button class="nav active" data-view="dashboard">◆ <span>Dashboard</span></button>
+      <button class="nav" data-view="interviews">◉ <span>Interviews</span></button>
+      <button class="nav" data-view="documents">▣ <span>Documents</span></button>
+      <button class="nav" data-view="findings">◇ <span>Findings</span></button>
+      <button class="nav" data-view="requirements">◆ <span>Requirements</span></button>
+      <button class="nav" data-view="risks">⚠ <span>Risks</span></button>
+      <button class="nav" data-view="opportunities">◎ <span>Opportunities</span></button>
+      <button class="nav" data-view="actions">✓ <span>Actions</span></button>
+      <button class="nav" data-view="reports">▤ <span>Reports</span></button>
+    </nav>
+    <div class="sidebar-bottom"><button class="nav" data-view="settings">⚙ <span>Settings</span></button></div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">INTELLIGENCE CONSOLE</div>
+        <h1 id="pageTitle">Executive Intelligence</h1>
+      </div>
+      <div class="top-actions">
+        <span class="live-dot"></span><span class="live-text">SYSTEM ONLINE</span>
+        <button class="icon-btn">⌕</button><button class="icon-btn">🔔</button>
+        <div class="avatar">TM</div>
+      </div>
+    </header>
+
+    <section id="content"></section>
+  </main>
+</div>
+
+<div class="modal hidden" id="interviewModal">
+  <div class="modal-card">
+    <button class="close" id="closeModal">×</button>
+    <div class="eyebrow">NEW SESSION</div><h2>Create Interview</h2>
+    <div class="form-grid">
+      <label>Interview title<input id="iTitle" placeholder="e.g. Business Discovery Interview"></label>
+      <label>Interviewee<input id="iPerson" placeholder="Full name"></label>
+      <label>Position<input id="iPosition" placeholder="Position / role"></label>
+      <label>Organisation<input id="iOrg" placeholder="Organisation"></label>
+      <label>Interview purpose<textarea id="iPurpose" placeholder="What do you need to discover?"></textarea></label>
+      <label>Date<input id="iDate" type="date"></label>
+    </div>
+    <button class="primary full" id="createInterview">START INTERVIEW</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
