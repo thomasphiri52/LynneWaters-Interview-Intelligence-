@@ -1,47 +1,39 @@
-# Lynnewaters Interview Intelligence Console — V4
+# Lynnewaters HR Management Console — V11 Neon Glass
 
-A navy-blue interview intelligence console with persistent SQLite storage, document uploads, register exports and a printable PDF workspace report.
+A Streamlit HR operations console designed around everyday HR workflows rather than interview-intelligence research. V11 upgrades the interface to a consistent deep navy, neon cyan/electric blue and glass-panel design with hover feedback for interactive controls. This is a visual and usability upgrade; it does not add authentication or change the underlying HR business rules. The dashboard provides an HR command centre, operational indicators, action shortcuts and a priority work queue.
+
+## Console modules
+- **HR Command Centre** — live counts, recruitment snapshot, operational indicators and a priority queue for pending leave, onboarding, training, employee-relations and performance follow-ups.
+- **Employee Directory** — employee register, status changes and basic employment details.
+- **Recruitment Pipeline & Vacancy Planning** — applicant stages, interviews, approved roles and hiring progress.
+- **Interview Scorecards** — structured, job-related interview records and consistent assessment prompts.
+- **Onboarding Checklist** — coordinate pre-start and new-starter tasks.
+- **Leave & Absence** — log requests and track pending/approved/declined decisions.
+- **Attendance Register** — basic operational attendance log and date-range review; not a biometric timeclock or payroll calculator.
+- **Performance & Reviews** — probation check-ins, quarterly/annual reviews, objective progress, development needs and follow-up dates.
+- **Training & Development** — training plans, due dates and completion tracking.
+- **Employee Relations** — restricted case tracker with ownership, status, priority and next review date. It is not a substitute for a secure legal case-management system.
+- **Offboarding** — exit workflow checklist for equipment return, access removal, exit interview and final documents.
+- **HR Policies** — policy register with version, owner, effective date and review date.
+- **HR Documents** — document register, upload/download tracking and review/expiry information.
+- **Meeting Minutes** — HR meeting agenda, decisions, actions, attendees and confidentiality classification.
+- **HR Action Tracker** — owners, due dates, priority and completion status.
+- **HR Reports & Audit Log** — operational exports and a history of tracked application activity.
 
 ## Run locally
-
 1. Install Python 3.10 or newer.
-2. Open a terminal in this folder.
-3. Install dependencies:
+2. In this folder, run `pip install -r requirements.txt`.
+3. Start the app with `streamlit run app.py`.
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+## Data storage and migration
+- SQLite database: `data/lynnewaters.db`
+- Uploaded files: `uploads/`
+- V11 retains the V10 workflow tables automatically while retaining existing tables from earlier versions. Back up the project and existing `data/` and `uploads/` folders before upgrading.
 
-4. Start the app:
+## Important production requirements
+This is a working prototype, not a complete HRIS, payroll engine, statutory leave calculator, applicant tracking system with email integration, or legal case-management system. The current app does not provide user login or role-based permissions. Do not store highly sensitive employee-relations records or identity, banking, medical or other unnecessary personal information until access controls and secure storage are implemented.
 
-   ```bash
-   streamlit run app.py
-   ```
+Before production use, implement authenticated named accounts, role-based access (HR administrator, HR officer, line manager, read-only), secure shared database and file storage, encryption, backups, retention/deletion rules, audit-log protection, privacy notices and a POPIA review. Streamlit Community Cloud local files may not persist reliably; do not commit the live database or confidential HR data to GitHub.
 
-## Modules
-
-- Executive dashboard with record counts
-- Interview register: create, list, delete and CSV export
-- Document uploads and downloads
-- Findings register
-- Requirements register
-- Risk register
-- Opportunities register
-- Action tracker with persistent status changes
-- Workspace report: JSON, CSV and PDF exports
-- Basic settings page
-
-## Persistence
-
-- SQLite database is stored at `data/lynnewaters.db`.
-- Uploaded documents are stored in `uploads/`.
-- Interview, finding, requirement, risk, opportunity and action records are saved to SQLite.
-- For Streamlit Community Cloud, the local filesystem may not be durable across app rebuilds/restarts. For production, use a managed external database and external file storage, with backups.
-
-## Deployment
-
-Push `app.py`, `requirements.txt`, and the project files to GitHub. In Streamlit Community Cloud, select the repository and set the main file path to `app.py`.
-
-## Production readiness notes
-
-This remains a prototype. Before storing sensitive interview information or using it with multiple users, add authentication, authorisation, secure secrets handling, a managed database, backups, audit logs, and a privacy/security review. AI transcription, OCR, integrations, and automatic email reminders are not connected.
+## Deploy
+Push the application files to a private or appropriately controlled GitHub repository, then configure Streamlit Community Cloud to use `app.py` as the main file. Confirm that persistent storage and access controls are suitable before using real employee data.
