@@ -1,17 +1,47 @@
-# Lynnewaters Interview Intelligence Console — V3
+# Lynnewaters Interview Intelligence Console — V4
 
-A standalone frontend prototype for the neon glass navy-blue interview intelligence dashboard.
+A navy-blue interview intelligence console with persistent SQLite storage, document uploads, register exports and a printable PDF workspace report.
 
-## Run
-Open `index.html` in a modern browser.
+## Run locally
 
-## Included
-- Neon glass navy-blue responsive dashboard
-- Executive intelligence overview
-- Interview session creation
-- Local browser storage for interview records
-- Documents, findings, requirements, risks, opportunities, actions and reports module views
-- Responsive mobile layout
+1. Install Python 3.10 or newer.
+2. Open a terminal in this folder.
+3. Install dependencies:
 
-## Note
-This is a frontend prototype. AI transcription, document OCR, authentication, cloud storage and PDF generation are not connected yet.
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. Start the app:
+
+   ```bash
+   streamlit run app.py
+   ```
+
+## Modules
+
+- Executive dashboard with record counts
+- Interview register: create, list, delete and CSV export
+- Document uploads and downloads
+- Findings register
+- Requirements register
+- Risk register
+- Opportunities register
+- Action tracker with persistent status changes
+- Workspace report: JSON, CSV and PDF exports
+- Basic settings page
+
+## Persistence
+
+- SQLite database is stored at `data/lynnewaters.db`.
+- Uploaded documents are stored in `uploads/`.
+- Interview, finding, requirement, risk, opportunity and action records are saved to SQLite.
+- For Streamlit Community Cloud, the local filesystem may not be durable across app rebuilds/restarts. For production, use a managed external database and external file storage, with backups.
+
+## Deployment
+
+Push `app.py`, `requirements.txt`, and the project files to GitHub. In Streamlit Community Cloud, select the repository and set the main file path to `app.py`.
+
+## Production readiness notes
+
+This remains a prototype. Before storing sensitive interview information or using it with multiple users, add authentication, authorisation, secure secrets handling, a managed database, backups, audit logs, and a privacy/security review. AI transcription, OCR, integrations, and automatic email reminders are not connected.
